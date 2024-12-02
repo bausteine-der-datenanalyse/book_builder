@@ -1,0 +1,6 @@
+[submodule "books/w-python-numpy-grundlagen"]
+	path = books/w-python-numpy-grundlagen
+	url = https://github.com/bausteine-der-datenanalyse/w-python-numpy-grundlagen
+[submodule "books/a-auswertung_fds_daten"]
+	path = books/a-auswertung_fds_daten
+	url = https://github.com/bausteine-der-datenanalyse/a-auswertung_fds_daten
