@@ -9,9 +9,15 @@ cat <<EOF > $OUTPUT_YAML
 project:
   type: book
   title: "The Big Book"
-  author: "Your Name"
-  date: "$(date +'%Y-%m-%d')"
-  output-dir: "_book"
+  author: 
+    - Lukas Arnold
+    - Simone Arnold
+    - Florian Bagemihl
+    - Matthias Baitsch
+    - Marc Fehr
+    - Maik Poetzsch
+    - Sebastian Seipel
+  date: today
 format:
   html:
     theme: flatly
