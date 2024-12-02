@@ -1,0 +1,39 @@
+---
+project:
+  type: book
+  title: "The Big Book"
+  author: "Your Name"
+  date: "2024-12-02"
+  output-dir: "_book"
+format:
+  html:
+    theme: flatly
+    toc: true
+    toc-depth: 2
+  pdf:
+    number-sections: true
+execute:
+  echo: true
+  warning: false
+chapters:
+  - index.qmd
+  - part: "w-python-numpy-grundlagen"
+    chapters:
+      - index.qmd
+      - skript/introduction.qmd
+      - skript/array_creation.qmd
+      - skript/array_info.qmd
+      - skript/array_calculation.qmd
+      - skript/array_slicing.qmd
+      - skript/array_manipulation.qmd
+      - skript/array_read_n_write.qmd
+      - skript/array_images.qmd
+      - skript/assessment.qmd
+      - uebungen/uebung.qmd
+      - klausurfragen/klausurfragen.qmd
+  - part: "a-auswertung_fds_daten"
+    chapters:
+      - index.qmd
+      - skript/introduction.qmd
+      - uebungen/uebung.qmd
+      - klausurfragen/klausurfragen.qmd

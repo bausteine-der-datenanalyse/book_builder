@@ -1,0 +1,37 @@
+name: Build Big Book
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+        with:
+          submodules: recursive  # Ensure submodules are cloned
+
+      - name: Install yq and Quarto
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y yq
+          wget https://quarto.org/download/latest/quarto-linux-amd64.deb
+          sudo dpkg -i quarto-linux-amd64.deb
+
+      - name: Generate Combined _quarto.yml
+        run: bash scripts/generate_quarto_yaml.sh
+
+      - name: Render the Big Book
+        run: quarto render
+
+      - name: Upload Book as Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: rendered-book
+          path: _book/
