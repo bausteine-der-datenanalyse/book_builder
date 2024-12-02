@@ -9,29 +9,63 @@ on:
       - main
 
 jobs:
-  build:
+  quarto-linux:
     runs-on: ubuntu-latest
     steps:
+      # Update Ubuntu packages
+      - name: Update apt
+        run: sudo apt update
+      # Install additional Ubuntu packages
+      - name: Install additional packages
+        run: sudo apt-get install -y librsvg2-bin libcurl4-openssl-dev libharfbuzz-dev libfribidi-dev
+      - name: Install yq and Quarto
+        run: sudo snap install yq --channel=v3/stableb
+
       - name: Checkout Repository
         uses: actions/checkout@v3
         with:
           submodules: recursive  # Ensure submodules are cloned
-
-      - name: Install yq and Quarto
-        run: |
-          sudo apt-get update
-          snap install yq --channel=v3/stable
-          wget https://quarto.org/download/latest/quarto-linux-amd64.deb
-          sudo dpkg -i quarto-linux-amd64.deb
-
+      
+      # Setup Python with a fixed version
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      
+      # Setup Quarto with fixed version
+      - name: Setup Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+        with:
+          tinytex: true
+          version: 1.4.556
+      
       - name: Generate Combined _quarto.yml
         run: bash scripts/generate_quarto_yaml.sh
 
-      - name: Render the Big Book
-        run: quarto render
+      # Render 
+      - name: Publish to GitHub Pages (and render) 
+        uses: quarto-dev/quarto-actions/render@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # this secret is always available for github actions
 
-      - name: Upload Book as Artifact
-        uses: actions/upload-artifact@v3
+
+      - name: Commit results to main branch
+        run: |
+          git config --local user.email "actions@github.com"
+          git config --local user.name "GitHub Actions"
+          git add .
+          git commit -m "CI added changes `date +'%Y-%m-%d %H:%M:%S'`" || echo "No changes to commit"
+          git push origin || echo "No changes to commit"
+      - name: Push changes # push the output folder to your repo
+        uses: ad-m/github-push-action@master
         with:
-          name: rendered-book
-          path: _book/
+          branch: main
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          # WORKFLOW_GITHUB_TOKEN
+          force: true
+
+
+
+
+
