@@ -1,0 +1,47 @@
+project:
+  type: book
+  output-dir: output/book/
+book:
+  title: "The Big Book"
+  author: 
+    - Lukas Arnold
+    - Simone Arnold
+    - Florian Bagemihl
+    - Matthias Baitsch
+    - Marc Fehr
+    - Maik Poetzsch
+    - Sebastian Seipel
+  date: today
+  chapters:
+    - index.qmd
+    - part: "w-python-numpy-grundlagen"
+      chapters:
+        - books/w-python-numpy-grundlagen/index.qmd
+        - books/w-python-numpy-grundlagen/skript/introduction.qmd
+        - books/w-python-numpy-grundlagen/skript/array_creation.qmd
+        - books/w-python-numpy-grundlagen/skript/array_info.qmd
+        - books/w-python-numpy-grundlagen/skript/array_calculation.qmd
+        - books/w-python-numpy-grundlagen/skript/array_slicing.qmd
+        - books/w-python-numpy-grundlagen/skript/array_manipulation.qmd
+        - books/w-python-numpy-grundlagen/skript/array_read_n_write.qmd
+        - books/w-python-numpy-grundlagen/skript/array_images.qmd
+        - books/w-python-numpy-grundlagen/skript/assessment.qmd
+        - books/w-python-numpy-grundlagen/uebungen/uebung.qmd
+        - books/w-python-numpy-grundlagen/klausurfragen/klausurfragen.qmd
+    - part: "a-auswertung_fds_daten"
+      chapters:
+        - books/a-auswertung_fds_daten/index.qmd
+        - books/a-auswertung_fds_daten/skript/introduction.qmd
+        - books/a-auswertung_fds_daten/uebungen/uebung.qmd
+        - books/a-auswertung_fds_daten/klausurfragen/klausurfragen.qmd
+format:
+  html:
+    theme: flatly
+    toc: true
+    toc-depth: 2
+  pdf:
+    number-sections: true
+
+execute:
+  freeze: auto
+
