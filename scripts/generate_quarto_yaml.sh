@@ -31,7 +31,8 @@ SUBMODULES_ORDER=(
 
 # Step 2: Append parts and chapters under one unified 'book' section
 for ITEM in "${SUBMODULES_ORDER[@]}"; do
-  IFS=":" read -r SUBMODULE PART_NAME <<< "$ITEM"
+  SUBMODULE="$ITEM"  # Define SUBMODULE from ITEM
+  PART_NAME=$(basename "$SUBMODULE")  # Dynamically use folder name as part title
   YAML_PATH="${SUBMODULE}/_quarto-full.yml"
 
   if [[ -f "$YAML_PATH" ]]; then
@@ -40,7 +41,6 @@ for ITEM in "${SUBMODULES_ORDER[@]}"; do
     echo "    - part: \"$PART_NAME\"" >> $OUTPUT_YAML
     echo "      chapters:" >> $OUTPUT_YAML
     while read -r CHAPTER; do
-      [[ "$CHAPTER" == *"index.qmd" ]] && continue  # Skip submodule's index.qmd
       echo "        - $SUBMODULE/$CHAPTER" >> $OUTPUT_YAML
     done <<< "$CHAPTERS"
   else
