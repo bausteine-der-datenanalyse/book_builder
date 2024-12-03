@@ -1,0 +1,32 @@
+project:
+  type: book
+
+book:
+  title: "The Big Book"
+  author: 
+    - Lukas Arnold
+    - Simone Arnold
+    - Florian Bagemihl
+    - Matthias Baitsch
+    - Marc Fehr
+    - Maik Poetzsch
+    - Sebastian Seipel
+  date: today
+  chapters:
+    - index.qmd
+    - part: ""
+      chapters:
+        - books/w-python-numpy-grundlagen/
+    - part: ""
+      chapters:
+        - books/a-auswertung_fds_daten/
+format:
+  html:
+    theme: flatly
+    toc: true
+    toc-depth: 2
+  pdf:
+    number-sections: true
+execute:
+  echo: true
+  warning: false
