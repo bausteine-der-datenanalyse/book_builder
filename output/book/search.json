@@ -8,5 +8,104 @@
     "crumbs": [
       "Preface"
     ]
+  },
+  {
+    "objectID": "books/w-python-numpy-grundlagen/index.html",
+    "href": "books/w-python-numpy-grundlagen/index.html",
+    "title": "Preamble",
+    "section": "",
+    "text": "Intro",
+    "crumbs": [
+      "w-python-numpy-grundlagen",
+      "Preamble"
+    ]
+  },
+  {
+    "objectID": "books/w-python-numpy-grundlagen/index.html#voraussetzungen",
+    "href": "books/w-python-numpy-grundlagen/index.html#voraussetzungen",
+    "title": "Preamble",
+    "section": "Voraussetzungen",
+    "text": "Voraussetzungen\n\nGrundlagen Python\nEinbinden von zusätzlichen Paketen\nPlotten mit Matplotlib",
+    "crumbs": [
+      "w-python-numpy-grundlagen",
+      "Preamble"
+    ]
+  },
+  {
+    "objectID": "books/w-python-numpy-grundlagen/index.html#verwendete-pakete-und-datensätze",
+    "href": "books/w-python-numpy-grundlagen/index.html#verwendete-pakete-und-datensätze",
+    "title": "Preamble",
+    "section": "Verwendete Pakete und Datensätze",
+    "text": "Verwendete Pakete und Datensätze\n\nPakete\n\nNumPy\nMatplotlib\n\n\n\nDatensätze\n\nTC01.csv\nBild: Mona Lisa\nBild: Campus",
+    "crumbs": [
+      "w-python-numpy-grundlagen",
+      "Preamble"
+    ]
+  },
+  {
+    "objectID": "books/w-python-numpy-grundlagen/index.html#bearbeitungszeit",
+    "href": "books/w-python-numpy-grundlagen/index.html#bearbeitungszeit",
+    "title": "Preamble",
+    "section": "Bearbeitungszeit",
+    "text": "Bearbeitungszeit\nGeschätzte Bearbeitungszeit: 2h",
+    "crumbs": [
+      "w-python-numpy-grundlagen",
+      "Preamble"
+    ]
+  },
+  {
+    "objectID": "books/w-python-numpy-grundlagen/index.html#lernziele",
+    "href": "books/w-python-numpy-grundlagen/index.html#lernziele",
+    "title": "Preamble",
+    "section": "Lernziele",
+    "text": "Lernziele\n\nEinleitung: was ist NumPy, Vor- und Nachteile\nNutzen des NumPy-Moduls\nErstellen von NumPy-Arrays\nSlicing\nLesen und schreiben von Dateien\nArbeiten mit Bildern",
+    "crumbs": [
+      "w-python-numpy-grundlagen",
+      "Preamble"
+    ]
+  },
+  {
+    "objectID": "books/w-python-numpy-grundlagen/skript/introduction.html",
+    "href": "books/w-python-numpy-grundlagen/skript/introduction.html",
+    "title": "1  Einführung NumPy",
+    "section": "",
+    "text": "1.1 Vorteile & Nachteile\nFast immer sind Operationen mit Numpy Datenstrukturen schneller. Im Gegensatz zu nativen Python Listen kann man dort aber nur einen Datentyp pro Liste speichern.",
+    "crumbs": [
+      "w-python-numpy-grundlagen",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Einführung NumPy</span>"
+    ]
+  },
+  {
+    "objectID": "books/w-python-numpy-grundlagen/skript/introduction.html#vorteile-nachteile",
+    "href": "books/w-python-numpy-grundlagen/skript/introduction.html#vorteile-nachteile",
+    "title": "1  Einführung NumPy",
+    "section": "",
+    "text": "Warum ist numpy oftmals schneller?\n\n\n\n\n\nNumPy implementiert eine effizientere Speicherung von Listen im Speicher. Nativ speichert Python Listeninhalte aufgeteilt, wo gerade Platz ist.\n\n\n\n\n\n\nFigure 1.1: Speicherung von Daten in nativem Python\n\n\n\nDagegen werden NumPy Arrays und Matritzen zusammenhängend gespeichert, was einen effizienteren Datenaufruf ermöglicht.\n\n\n\n\n\n\nFigure 1.2: Speicherung von Daten bei Numpy\n\n\n\nDies bedeutet aber auch, dass es eine Erweiterung der Liste deutlich schneller ist als eine Erweiterung von Arrays oder Matrizen. Bei Listen kann jeder freie Platz genutzt werden, während Arrays und Matrizen an einen neuen Ort im Speicher kopiert werden müssen.",
+    "crumbs": [
+      "w-python-numpy-grundlagen",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Einführung NumPy</span>"
+    ]
+  },
+  {
+    "objectID": "books/w-python-numpy-grundlagen/skript/introduction.html#einbinden-des-pakets",
+    "href": "books/w-python-numpy-grundlagen/skript/introduction.html#einbinden-des-pakets",
+    "title": "1  Einführung NumPy",
+    "section": "1.2 Einbinden des Pakets",
+    "text": "1.2 Einbinden des Pakets\nNumPy wird über folgende Zeile eingebunden. Dabei hat sich global der Standard entwickelt, als Alias np zu verwenden.\n\nimport numpy as np",
+    "crumbs": [
+      "w-python-numpy-grundlagen",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Einführung NumPy</span>"
+    ]
+  },
+  {
+    "objectID": "books/w-python-numpy-grundlagen/skript/introduction.html#referenzen",
+    "href": "books/w-python-numpy-grundlagen/skript/introduction.html#referenzen",
+    "title": "1  Einführung NumPy",
+    "section": "1.3 Referenzen",
+    "text": "1.3 Referenzen\nSämtliche hier vorgestellten Funktionen lassen sich in der (englischen) NumPy-Dokumentation nachschlagen: Dokumentation",
+    "crumbs": [
+      "w-python-numpy-grundlagen",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Einführung NumPy</span>"
+    ]
   }
 ]

@@ -56,6 +56,10 @@ format:
     toc-depth: 2
   pdf:
     number-sections: true
+
+execute:
+  freeze: auto
+
 EOF
 
 echo "Combined _quarto.yml with parts and chapters from submodules generated."
