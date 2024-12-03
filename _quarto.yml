@@ -1,6 +1,6 @@
 project:
   type: book
-
+  output-dir: output/book/
 book:
   title: "The Big Book"
   author: 
@@ -27,6 +27,3 @@ format:
     toc-depth: 2
   pdf:
     number-sections: true
-execute:
-  echo: true
-  warning: false
