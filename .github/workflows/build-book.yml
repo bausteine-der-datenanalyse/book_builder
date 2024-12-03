@@ -47,6 +47,9 @@ jobs:
       - name: Generate Combined _quarto.yml
         run: bash scripts/generate_quarto_yaml.sh
 
+      - name: Generate combined requirements.txt
+        run: bash scripts/gen_requirements_txt.sh
+
       # Render 
       - name: Publish to GitHub Pages (and render) 
         uses: quarto-dev/quarto-actions/render@v2
