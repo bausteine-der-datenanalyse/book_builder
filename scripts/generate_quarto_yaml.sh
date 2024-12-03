@@ -7,7 +7,7 @@ OUTPUT_YAML="_quarto.yml"
 cat <<EOF > $OUTPUT_YAML
 project:
   type: book
-
+  output-dir: output/book/
 book:
   title: "The Big Book"
   author: 
@@ -56,9 +56,6 @@ format:
     toc-depth: 2
   pdf:
     number-sections: true
-execute:
-  echo: true
-  warning: false
 EOF
 
 echo "Combined _quarto.yml with parts and chapters from submodules generated."
