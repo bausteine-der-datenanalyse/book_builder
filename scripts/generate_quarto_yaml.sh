@@ -19,17 +19,6 @@ book:
     - Maik Poetzsch
     - Sebastian Seipel
   date: today
-format:
-  html:
-    theme: flatly
-    toc: true
-    toc-depth: 2
-  pdf:
-    number-sections: true
-execute:
-  echo: true
-  warning: false
-book:
   chapters:
     - index.qmd
 EOF
@@ -71,6 +60,19 @@ for SUBMODULE in "${SUBMODULES_ORDER[@]}"; do
     echo "Submodule $SUBMODULE does not exist, skipping..."
   fi
 done
+
+cat <<EOF >> $OUTPUT_YAML
+format:
+  html:
+    theme: flatly
+    toc: true
+    toc-depth: 2
+  pdf:
+    number-sections: true
+execute:
+  echo: true
+  warning: false
+EOF
 
 echo "Combined _quarto.yml with parts and chapters from submodules generated."
 

@@ -12,17 +12,6 @@ book:
     - Maik Poetzsch
     - Sebastian Seipel
   date: today
-format:
-  html:
-    theme: flatly
-    toc: true
-    toc-depth: 2
-  pdf:
-    number-sections: true
-execute:
-  echo: true
-  warning: false
-book:
   chapters:
     - index.qmd
     - part: "w-python-numpy-grundlagen"
@@ -45,3 +34,13 @@ book:
         - skript/introduction.qmd
         - uebungen/uebung.qmd
         - klausurfragen/klausurfragen.qmd
+format:
+  html:
+    theme: flatly
+    toc: true
+    toc-depth: 2
+  pdf:
+    number-sections: true
+execute:
+  echo: true
+  warning: false
