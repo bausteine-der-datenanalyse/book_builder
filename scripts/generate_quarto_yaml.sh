@@ -29,35 +29,22 @@ SUBMODULES_ORDER=(
   "books/a-auswertung_fds_daten"  # Second sub-book
 )
 
-# Function to extract and append chapters from a submodule's _quarto.yml
-extract_parts_and_chapters() {
-  local SUBMODULE=$1
-  local MODULE_NAME=$(basename "$SUBMODULE")
-  local YAML_PATH="${SUBMODULE}/_quarto-full.yml"
-  
-  # Check if the submodule has a _quarto.yml file
+# Step 2: Append parts and chapters under one unified 'book' section
+for ITEM in "${SUBMODULES_ORDER[@]}"; do
+  IFS=":" read -r SUBMODULE PART_NAME <<< "$ITEM"
+  YAML_PATH="${SUBMODULE}/_quarto-full.yml"
+
   if [[ -f "$YAML_PATH" ]]; then
-    # Extract chapters from the YAML using yq
     CHAPTERS=$(yq eval '.book.chapters[]' "$YAML_PATH")
-    
-    # Add the part and chapters to the big book's _quarto.yml
-    echo "    - part: \"$MODULE_NAME\"" >> $OUTPUT_YAML
+
+    echo "    - part: \"$PART_NAME\"" >> $OUTPUT_YAML
     echo "      chapters:" >> $OUTPUT_YAML
     while read -r CHAPTER; do
-      echo "        - $CHAPTER" >> $OUTPUT_YAML
+      [[ "$CHAPTER" == *"index.qmd" ]] && continue  # Skip submodule's index.qmd
+      echo "        - $SUBMODULE/$CHAPTER" >> $OUTPUT_YAML
     done <<< "$CHAPTERS"
   else
-    echo "No _quarto.yml in ${SUBMODULE}, skipping..."
-  fi
-}
-
-# Extract parts and chapters from each submodule in the defined order
-for SUBMODULE in "${SUBMODULES_ORDER[@]}"; do
-  # Ensure the submodule directory exists before processing
-  if [[ -d "$SUBMODULE" ]]; then
-    extract_parts_and_chapters "$SUBMODULE"
-  else
-    echo "Submodule $SUBMODULE does not exist, skipping..."
+    echo "No _quarto.yml in $SUBMODULE, skipping..."
   fi
 done
 
