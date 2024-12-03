@@ -23,7 +23,7 @@ jobs:
       - name: Install additional packages
         run: sudo apt-get install -y librsvg2-bin libcurl4-openssl-dev libharfbuzz-dev libfribidi-dev
       - name: Install yq
-        run: sudo snap install yq --channel=v3/stable
+        run: sudo snap install yq
 
       - name: Checkout Repository
         uses: actions/checkout@v3
